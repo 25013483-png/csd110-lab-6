@@ -1,0 +1,177 @@
+#indexing
+
+hp@hp-HP-EliteBook-840-G5:~/labs$ python3
+Python 3.12.15 (main, Oct 26 2026, 02:58:25) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> s = "hi there friend"
+>>> s[0]
+'h'
+>>> s[-1]
+'d'
+>>> s[-2]
+'n'
+>>> s[100]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+
+
+hp@hp-HP-EliteBook-840-G5:~/labs$ python3
+Python 3.12.15 (main, Oct 26 2026, 02:58:25) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> s = "hi there 😀 friend"
+>>> [10]
+[10]
+>>> s[10]
+' '
+>>> s[9]
+'😀'
+>>> len9s0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'len9s0' is not defined
+>>> len(s)
+17
+>>> s[2,0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: string indices must be integers, not 'tuple'
+>>> s[2.0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: string indices must be integers, not 'float'
+>>> s[16]
+'d'
+>>> s[17]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: string index out of range
+>>> s[len(s) - 1]
+'d'
+>>> i = 3
+>>> s[i]
+'t'
+>>> s[len("abc")]
+'t'
+>>> import math
+>>> x = 2
+>>> math.sqrt(100) + x * 2
+14.0
+>>> s[math.sqrt(100) + x * 2]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: string indices must be integers, not 'float'
+>>> s[int(math.sqrt(100) + x * 2)]
+'e'
+>>> 
+
+
+#slicing
+
+hp@hp-HP-EliteBook-840-G5:~/labs$ python3
+Python 3.12.15 (main, Oct 26 2026, 02:58:25) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> s = "hi there 😀 friend"
+>>> s[0:5]
+'hi th'
+>>> s[:5]
+'hi th'
+>>> s[5:]
+'ere 😀 friend'
+>>> s[:]
+'hi there 😀 friend'
+>>> s[-6:]
+'friend'
+>>> s[:-6]
+'hi there 😀 '
+>>> s[3:100]
+'there 😀 friend'
+>>> s[4:4]
+''
+>>> s[8:2]
+''
+>>> 
+
+
+#f-strings
+
+hp@hp-HP-EliteBook-840-G5:~/labs$ python3
+Python 3.12.15 (main, Oct 26 2026, 02:58:25) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> s = "hi there 😀 friend"
+>>> name="Duru"
+>>> age=26
+>>> f"my name is {name} and i am {age}"
+'my name is Duru and i am 26'
+>>> f"{name} has {len(name)} letters"
+'Duru has 4 letters'
+>>> f"Upper: {name.upper()}
+  File "<stdin>", line 1
+    f"Upper: {name.upper()}
+    ^
+SyntaxError: unterminated f-string literal (detected at line 1)
+>>> f"Upper: {name.upper()}"
+'Upper: DURU'
+>>> f"First letter: {name[0]}, last two: {name[-2:]}"
+'First letter: D, last two: ru'
+>>> f"{s[9]} is at index 9"
+'😀 is at index 9'
+>>> f"{name}"
+'Duru'
+>>> "{name}"
+'{name}'
+>>> d"{name}"
+  File "<stdin>", line 1
+    d"{name}"
+     ^^^^^^^^
+SyntaxError: invalid syntax
+
+
+hp@hp-HP-EliteBook-840-G5:~/labs$ python3
+Python 3.12.15 (main, Oct 26 2026, 02:58:25) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> age=26
+>>> f"Next year I will be {age + 1}"
+'Next year I will be 27'
+>>>
+
+
+#format   
+
+hp@hp-HP-EliteBook-840-G5:~/labs$ python3
+Python 3.12.15 (main, Oct 26 2026, 02:58:25) [GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+
+>>> "{} and {}".format("cats", "dogs")
+'cats and dogs'
+>>> "{0} and {1}".format("cats", "dogs")
+'cats and dogs'
+>>> "{1} and {0}".format("cats", "dogs")
+'dogs and cats'
+>>> "{0} {0} {1}".format("ha", "!")
+'ha ha !'
+>>> "{} and {}".format("cats")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: Replacement index 1 out of range for positional args tuple
+>>> "{} and {}".format("cats", "dogs", "birds")
+'cats and dogs'
+>>> "{name} is {age}".format(name="Duru", age=26)
+'Duru is 26'
+>>> "[{:>10}]".format("hi")
+'[        hi]'
+>>> "[{:<10}]".format("hi")
+'[hi        ]'
+>>> "[{:^10}]".format("hi")
+'[    hi    ]'
+>>> "{:.2f}".format(3.14159)
+'3.14'
+>>> "{:,}".format(1234567)
+'1,234,567'
+>>> "{:05d}".format(42)
+'00042'
